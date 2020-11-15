@@ -65,7 +65,8 @@ namespace Lesson_1
             Number [] arr = new Number[length];
             for (int i = 0; i < length; i++)
             {
-                arr[i] = new Number() { Num = i + 1, Group = 2 };
+                arr[i].Num = i + 1;
+                arr[i].Group = 2;
             }
             return arr;
         }
@@ -76,40 +77,33 @@ namespace Lesson_1
             public static void Distrib(Number [] array)
             {
                 Number SourceNumber;
-                Number TargetNumber;
 
-                TargetNumber = array[0];
-                TargetNumber.Group = 1;
-                array[0] = TargetNumber;
+                array[0].Group = 1;
 
                 int step = 0;
-                int s = 0;
                 double pow = 0;
 
                 for (int i = 1; i < array.Length; i++)
                 {
-                            step = 1;
-                            SourceNumber = array[i];
-                    
-                            for (int index = SourceNumber.Num - 1; index < array.Length && index >= 0; index = (SourceNumber.Num * step) - 1)
+                    step = 1;
+                    SourceNumber = array[i];
+
+                    for (int index = SourceNumber.Num - 1; index < array.Length && index >= 0; index = (SourceNumber.Num * step) - 1)
+                    {
+                        if (array[index].Group == SourceNumber.Group && array[index].Num != SourceNumber.Num)
+                        {
+                            pow = Math.Log(array[index].Num, SourceNumber.Num);
+                            if (pow - Math.Floor(pow) == 0)
                             {
-                                TargetNumber = array[index];
-                                if (TargetNumber.Group == SourceNumber.Group && TargetNumber.Num != SourceNumber.Num)
-                                {                                    
-                                    pow = Math.Log(TargetNumber.Num, SourceNumber.Num);
-                                    if (pow % 1 == 0)
-                                    {
-                                        s = (int)pow;
-                                        TargetNumber.Group = (byte)(array[i].Group + s - 1);
-                                    }
-                                    else
-                                    {
-                                        TargetNumber.Group = (byte)(array[i].Group + 1);
-                                    }   
-                                    array[index] = TargetNumber;
-                                }
-                                step++;
+                                array[index].Group = (byte)(SourceNumber.Group + (int)pow - 1);
                             }
+                            else
+                            {
+                                array[index].Group++;
+                            }
+                        }
+                        step++;
+                    }
                 }
 
                 Console.WriteLine("Подсчет завершен.");   
