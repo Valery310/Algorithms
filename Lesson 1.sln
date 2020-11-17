@@ -3,11 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30523.141
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Dec to Bin", "Dec to Bin\Dec to Bin.csproj", "{2E067CA7-412E-4D91-9955-4BB1E3D24327}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pow", "Pow\Pow.csproj", "{D0F51EDB-6C23-4995-9D9D-04F90B36558E}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Сalculator", "Сalculator\Сalculator.csproj", "{6820629E-B321-4989-B26A-48ED97FC3044}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BubleSort", "BubleSort\BubleSort.csproj", "{737CF2BA-7A13-40A9-9CF1-98BEE21EB778}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,18 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{2E067CA7-412E-4D91-9955-4BB1E3D24327}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2E067CA7-412E-4D91-9955-4BB1E3D24327}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2E067CA7-412E-4D91-9955-4BB1E3D24327}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2E067CA7-412E-4D91-9955-4BB1E3D24327}.Release|Any CPU.Build.0 = Release|Any CPU
-		{D0F51EDB-6C23-4995-9D9D-04F90B36558E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{D0F51EDB-6C23-4995-9D9D-04F90B36558E}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{D0F51EDB-6C23-4995-9D9D-04F90B36558E}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{D0F51EDB-6C23-4995-9D9D-04F90B36558E}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6820629E-B321-4989-B26A-48ED97FC3044}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6820629E-B321-4989-B26A-48ED97FC3044}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6820629E-B321-4989-B26A-48ED97FC3044}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6820629E-B321-4989-B26A-48ED97FC3044}.Release|Any CPU.Build.0 = Release|Any CPU
+		{737CF2BA-7A13-40A9-9CF1-98BEE21EB778}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{737CF2BA-7A13-40A9-9CF1-98BEE21EB778}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{737CF2BA-7A13-40A9-9CF1-98BEE21EB778}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{737CF2BA-7A13-40A9-9CF1-98BEE21EB778}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
