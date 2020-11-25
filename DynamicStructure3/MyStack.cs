@@ -2,19 +2,19 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace DynamicStructure2
+namespace DynamicStructure3
 {
     class MyStack<T>
     {
         Node<T> node;
         public int Count { get; private set; }
 
-        public MyStack() 
+        public MyStack()
         {
             Count = 0;
             node = null;
         }
-          
+
         public void Push(T Value)
         {
             try
@@ -24,13 +24,13 @@ namespace DynamicStructure2
                 node = newNode;
                 Count++;
                 mem = GC.GetTotalMemory(true) - mem;
-            //    Console.WriteLine($"Выделено {mem} памяти.");
+                //    Console.WriteLine($"Выделено {mem} памяти.");
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
                 Console.WriteLine("Память не выделена");
-            }       
+            }
         }
 
         public T Peek()
@@ -66,5 +66,6 @@ namespace DynamicStructure2
                 PrevNode = _PrevNode;
             }
         }
+
     }
 }

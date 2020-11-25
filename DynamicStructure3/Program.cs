@@ -7,44 +7,87 @@ namespace DynamicStructure3
     {
         static void Main(string[] args)
         {
-            DecToBin();
-            BinToDec();
+            string seq1 = "()(){([])}";
+            CheckSeq(seq1);
+
+            string seq2 = "()){(]}";
+            CheckSeq(seq2);
+
             Console.ReadKey();
         }
 
-        static void DecToBin() 
+        public static void CheckSeq(string seq) 
         {
-            int x = 250; // число для перевода
-            Console.WriteLine(x);
-            var stack = new Stack<int>();
-            while (x > 0)
+            MyStack<char> myStack = new MyStack<char>();
+            MyStack<char> temp = new MyStack<char>();
+            string CheckSymbol = "(){}[]";
+            foreach (var item in seq)
             {
-                stack.Push(x % 2);
-                x /= 2;
-            }
-            foreach (int i in stack)
-                Console.Write(i);
-        }
-
-        static void BinToDec()
-        {
-            string x = "10010"; // число для перевода
-            Console.WriteLine(x);
-            var stack = new Stack<int>();
-            foreach (char item in x)
-            {
-                stack.Push(Convert.ToInt32(item));
+                if (CheckSymbol.Contains(item))
+                {
+                    myStack.Push(item);
+                }      
             }
 
-            int res = 0;
-            int v = 0;
-            int i = 0;
-            while (stack.TryPop(out v))
+            while(myStack.Count>0)
             {
-                res = res + (int)(v * Math.Pow(2, i));
-                i++;
-            }    
-                Console.WriteLine(res);
+                if (temp.Count == 0)
+                {
+                    temp.Push(myStack.Pop());
+                }
+                else
+                {
+                    if (myStack.Peek() == ')' && temp.Peek() == '(')
+                    {
+                        temp.Pop();
+                        myStack.Pop();
+                    }
+                    else if (myStack.Peek() == '}' && temp.Peek() == '{')
+                    {
+                        temp.Pop();
+                        myStack.Pop();
+                    }
+                    else if (myStack.Peek() == '}' && temp.Peek() == '{')
+                    {
+                        temp.Pop();
+                        myStack.Pop();
+                    }
+                    else if (myStack.Peek() == '(' && temp.Peek() == ')')
+                    {
+                        temp.Pop();
+                        myStack.Pop();
+                    }
+                    else if (myStack.Peek() == '{' && temp.Peek() == '}')
+                    {
+                        temp.Pop();
+                        myStack.Pop();
+                    }
+                    else if (myStack.Peek() == '[' && temp.Peek() == ']')
+                    {
+                        temp.Pop();
+                        myStack.Pop();
+                    }
+                    else
+                    {
+                        temp.Push(myStack.Pop());
+                    }
+                    
+                }
+            }
+
+
+            Console.WriteLine($"следовательность: {seq}");
+
+            if (temp.Count == 0 && myStack.Count == 0)
+            {    
+                Console.WriteLine("Последовательность верна.");
+            }
+            else
+            {
+                Console.WriteLine("Последовательност ошибочна.");
+            }
         }
+
+      
     }
 }

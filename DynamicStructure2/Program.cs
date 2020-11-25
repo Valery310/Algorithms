@@ -16,7 +16,8 @@ namespace DynamicStructure2
         public static void FillStack() 
         {
             MyStack<long> myStack = new MyStack<long>();
-            for (long i = 0; i < 5_000; i++)
+
+            for (long i = 0; i < 5_000_000_000; i++)
             {
                 myStack.Push(i);
             }
