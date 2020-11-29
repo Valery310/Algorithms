@@ -8,36 +8,27 @@ namespace BinTree
     {
         private Node RootNode;
         public int Count { get; private set; }
-        public TypeTree Type { get; private set; }
 
-        public Tree(TypeTree tt) 
+        public Tree() 
         {
-            RootNode = new Node();
             Count = 0;
-            Type = tt;
         }
 
-        public void AddNode(int value) 
+        public void Add(int value) 
         {
-            switch (Type)
+            if (RootNode != null)
             {
-                case TypeTree.Binary:
-                    AddBinary(value, RootNode);
-                    break;
-                case TypeTree.Balance:
-                    AddBalance(value);
-                    break;
+                AddNode(value, RootNode);
             }
-
+            else
+            {
+                RootNode = new Node() { data = value };
+            }
+            
             Count++;
         }
 
-        private void AddBalance(int value) 
-        {
-        
-        }
-
-        private void AddBinary(int value, Node node) 
+        private void AddNode(int value, Node node) 
         {
             if (node.data != value)
             {
@@ -45,7 +36,7 @@ namespace BinTree
                 {
                     if (node.left != null)
                     {
-                        AddBinary(value, node.left);
+                        AddNode(value, node.left);
                     }
                     else
                     {
@@ -57,7 +48,7 @@ namespace BinTree
                 {
                     if (node.right != null)
                     {
-                        AddBinary(value, node.right);
+                        AddNode(value, node.right);
                     }
                     else
                     {
@@ -70,28 +61,145 @@ namespace BinTree
 
         public void Write() 
         {
-            WriteNode(RootNode);
+            Console.WriteLine("Обход КЛП: ");
+            KLP(RootNode);
+            Console.WriteLine();
+            Console.WriteLine("Обход ЛКП: ");
+            LKP(RootNode);
+            Console.WriteLine();
+            Console.WriteLine("Обход ЛПК: ");
+            LPK(RootNode);
+            Console.WriteLine();
         }
 
-        private void WriteNode(Node root) 
+        private void KLP(Node root) 
         {
             if (root != null)
             {
                 Console.Write($"{root.data}");
-                if (root.left != null || root.right != null)
-                {
-                    Console.Write("(");
-                    if (root.left != null)
-                        WriteNode(root.left);
-                    else
-                        Console.Write("NULL");
-                    Console.Write(",");
-                    if (root.right != null)
-                        WriteNode(root.right);
-                    else
-                        Console.Write("NULL");
-                    Console.Write(")");
+                Console.Write("(");
+
+                if (root.left != null)
+                { 
+                    KLP(root.left); 
                 }
+                else
+                { 
+                    Console.Write("NULL"); 
+                }
+
+                    Console.Write(",");
+
+                if (root.right != null)
+                { 
+                    KLP(root.right); 
+                }
+                else
+                { 
+                    Console.Write("NULL"); 
+                }
+
+                    Console.Write(")");
+            }
+        }
+
+        private void LKP(Node root) 
+        {
+            if (root != null)
+            {
+                Console.Write("(");
+
+                if (root.left != null)
+                {
+                    LKP(root.left);
+                }
+                else
+                {
+                    Console.Write("NULL");
+                }              
+
+                Console.Write("<-");
+                Console.Write($"{root.data}");
+                Console.Write("->");
+
+                if (root.right != null)
+                {
+                    LKP(root.right);
+                }
+                else
+                {
+                    Console.Write("NULL");
+                }
+                
+                Console.Write(")");
+            }
+        }
+        private void LPK(Node root) 
+        {
+            if (root != null)
+            {
+                Console.Write("(");
+                if (root.left != null)
+                {
+                    LPK(root.left);
+                }
+                else
+                {
+                    Console.Write("NULL");
+                }
+
+                if (root.right != null)
+                {
+                    LPK(root.right);
+                }
+                else
+                {
+                    Console.Write("NULL");
+                }
+                Console.Write(")");
+                Console.Write("->");
+                Console.Write($"{root.data}");
+            }
+        }
+
+        public void Find(int value) 
+        {
+            Node node = FindNode(value, RootNode);
+            if (node != null)
+            {
+                Console.WriteLine($"Значение {node.data} найдено в дереве.");
+            }
+            else
+            {
+                Console.WriteLine($"Значение {value} отсутствует в дереве.");
+            }
+        }
+
+        private Node FindNode(int value, Node root) 
+        {
+            if (root != null)
+            {
+                Node temp = null;
+                if (root.data == value)
+                {
+                    return root;
+                }
+                else if (value < root.data)
+                {
+                        temp = FindNode(value, root.left);                
+                }
+                else
+                {
+                    if (temp == null)
+                    {
+                        temp = FindNode(value, root.right);
+                    }           
+                }
+                return temp;
+            }
+            else
+            {
+                return null;
             }
         }
 
@@ -103,6 +211,4 @@ namespace BinTree
             public Node root;
         }
     }
-
-    public enum TypeTree { Binary, Balance }
 }

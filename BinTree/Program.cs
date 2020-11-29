@@ -9,17 +9,30 @@ namespace BinTree
         //б) Реализовать поиск в двоичном дереве поиска;
         //в) *Добавить в программу обработку командной строки, с помощью которой можно указывать, из какого файла считывать данные, каким образом обходить дерево.
         //    КрюковВН
+
+        public static Random random = new Random();
+
         static void Main(string[] args)
         {
-            Tree tree = new Tree(TypeTree.Binary);
-            tree.AddNode(10);
-            Random random = new Random();
-            for (int i = 0; i < 20; i++)
-            {
-                tree.AddNode(random.Next(0, 50));
-            }
-            tree.Write();
+
+            FillTree();
             Console.ReadLine();
         }
+
+        public static void FillTree()
+        {
+            Tree tree = new Tree();
+            for (int i = 0; i < 20; i++)
+            {
+                tree.Add(random.Next(0, 50));
+            }
+            tree.Write();
+
+            for (int i = 0; i < 5; i++)
+            {
+                tree.Find(random.Next(0, 50));
+            }
+        }
+
     }
 }
