@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace DynamicStructure2
 {
@@ -24,7 +25,7 @@ namespace DynamicStructure2
 
             for (long i = 0; i < 5_000; i++)
             {
-                Console.WriteLine(myStack.Pop());
+                Console.Write($"{myStack.Pop()}, ");
             }
 
         }

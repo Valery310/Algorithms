@@ -17,20 +17,20 @@ namespace DynamicStructure2
           
         public void Push(T Value)
         {
-            try
-            {
-                long mem = GC.GetTotalMemory(true);
+            //try
+            //{
+            //    long mem = GC.GetTotalMemory(true);
                 Node<T> newNode = new Node<T>(Value, node);
                 node = newNode;
                 Count++;
-                mem = GC.GetTotalMemory(true) - mem;
+            //    mem = GC.GetTotalMemory(true) - mem;
             //    Console.WriteLine($"Выделено {mem} памяти.");
-            }
-            catch (Exception ex)
-            {
-                Console.WriteLine(ex.Message);
-                Console.WriteLine("Память не выделена");
-            }       
+            //}
+            //catch (Exception ex)
+            //{
+            //    Console.WriteLine(ex.Message);
+            //    Console.WriteLine("Память не выделена");
+            //}
         }
 
         public T Peek()
