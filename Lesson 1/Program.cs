@@ -41,13 +41,13 @@ namespace Lesson_1
                  
         }
 
-        public struct Number 
+        public class Number 
         {
             public byte Group;
             public int Num;
         }
 
-        public struct Groups
+        public class Groups
         {
             public byte Group;
             public List<Number> Arr;
@@ -65,7 +65,13 @@ namespace Lesson_1
             Number [] arr = new Number[length];
             for (int i = 0; i < length; i++)
             {
+<<<<<<< Updated upstream
                 arr[i] = new Number() { Num = i + 1, Group = 2 };
+=======
+                arr[i] = new Number() { Group = 2, Num = i + 1 };
+               // arr[i].Num = i + 1;
+               // arr[i].Group = 2;
+>>>>>>> Stashed changes
             }
             return arr;
         }
@@ -121,7 +127,7 @@ namespace Lesson_1
                 foreach (var item in arr)
                 {
                     Groups g = group.Find(c => c.Group == item.Group);
-                    if (g.Arr == null)
+                    if (g == null)//(g.Arr == null)
                     {
                         Groups newGroup = new Groups() { Group = item.Group, Arr = new List<Number>() };
                         g = newGroup;
