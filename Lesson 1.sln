@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30523.141
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Matrix", "Graphs\Matrix.csproj", "{44DD95D5-2364-4B10-AB7C-C423289D2698}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ComplexSort", "CountingSort\ComplexSort.csproj", "{50316E0D-9206-4267-B0A2-B325BF4B1DB2}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -11,10 +11,10 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{44DD95D5-2364-4B10-AB7C-C423289D2698}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{44DD95D5-2364-4B10-AB7C-C423289D2698}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{44DD95D5-2364-4B10-AB7C-C423289D2698}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{44DD95D5-2364-4B10-AB7C-C423289D2698}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50316E0D-9206-4267-B0A2-B325BF4B1DB2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50316E0D-9206-4267-B0A2-B325BF4B1DB2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50316E0D-9206-4267-B0A2-B325BF4B1DB2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50316E0D-9206-4267-B0A2-B325BF4B1DB2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
